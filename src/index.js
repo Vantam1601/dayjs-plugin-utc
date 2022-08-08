@@ -11,8 +11,8 @@ const injectDayjsClass = function (pluginPrototype, $super) {
       return $super[key].apply(this, arguments).utcOffset($utcOffset)
     }
   })
-  pluginPrototype.utc = function () {
-    return this.utcOffset(0)
+  pluginPrototype.utc = function (offSet = 0) {
+    return this.utcOffset(offSet * 60)
   }
   pluginPrototype.local = function () {
     return this.utcOffset(-LOCAL_TIMEZONE_OFFSET)
